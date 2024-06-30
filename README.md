@@ -3,7 +3,7 @@ Capstone project--- Members---Kaushal, Chethan, Pathik and Rituparna
 
 ## Steps to Run :
 1. Clone the repository
-`git clone <repo-link`
+`git clone <repo-link>`
 2. cd into the Required folders
 `cd Auth`
 `cd server`
