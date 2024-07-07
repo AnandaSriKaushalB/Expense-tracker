@@ -41,7 +41,9 @@ function Dashboard() {
                         </div>
                     </div>
                     <div className="chart-con">
-                        <Chart />
+                        <ChartWrapper>
+                            <Chart />
+                        </ChartWrapper>
                     </div>
                     <div className="history-con">
                         <History />
@@ -61,15 +63,15 @@ const DashboardStyled = styled.div`
 
     .chart-con {
         grid-column: 1 / -1;
-        height: 400px;
         display: flex;
-        justify-content: center; /* Center content horizontally */
-        align-items: center; /* Center content vertically */
+        justify-content: center;
+        align-items: center;
+        height: 60vh; /* Adjust the height as needed */
     }
 
     .amount-con {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Three columns for amount-con */
+        grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
         margin-top: 2rem;
 
@@ -105,7 +107,7 @@ const DashboardStyled = styled.div`
                 }
 
                 &.balance-amount {
-                    color: blue;
+                    color: #333;
                 }
             }
         }
@@ -118,6 +120,14 @@ const DashboardStyled = styled.div`
         box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
         padding: 1rem;
     }
+`;
+
+const ChartWrapper = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 export default Dashboard;
