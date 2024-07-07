@@ -13,7 +13,6 @@ function Chart() {
 
     useEffect(() => {
         if (incomes && expenses) {
-            // Helper function to aggregate amounts by date
             const aggregateAmountsByDate = (transactions) => {
                 return transactions.reduce((acc, transaction) => {
                     const date = dateFormat(transaction.date);
@@ -70,9 +69,12 @@ const ChartStyled = styled.div`
     background: #FCF6F9;
     border: 2px solid #FFFFFF;
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 20px;
-    height: 100%;
+    height: 430px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 export default Chart;
