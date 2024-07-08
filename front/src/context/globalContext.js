@@ -34,9 +34,7 @@ export const GlobalProvider = ({ children }) => {
     );
 
     axiosInstance.interceptors.response.use(
-        response => {
-            return response;
-        },
+        response => response,
         error => {
             if (error.response && error.response.status === 401) {
                 console.log("Unauthorized error:", error.response.data);
@@ -78,9 +76,7 @@ export const GlobalProvider = ({ children }) => {
         }
     };
 
-    const totalIncome = () => {
-        return incomes.reduce((total, income) => total + income.amount, 0);
-    };
+    const totalIncome = () => incomes.reduce((total, income) => total + income.amount, 0);
 
     const addExpense = async (expense) => {
         try {
@@ -115,13 +111,9 @@ export const GlobalProvider = ({ children }) => {
         }
     };
 
-    const totalExpenses = () => {
-        return expenses.reduce((total, expense) => total + expense.amount, 0);
-    };
+    const totalExpenses = () => expenses.reduce((total, expense) => total + expense.amount, 0);
 
-    const totalBalance = () => {
-        return totalIncome() - totalExpenses();
-    };
+    const totalBalance = () => totalIncome() - totalExpenses();
 
     const getTransactions = useCallback(async () => {
         try {
@@ -220,6 +212,4 @@ export const GlobalProvider = ({ children }) => {
     );
 };
 
-export const useGlobalContext = () => {
-    return useContext(GlobalContext);
-};
+export const useGlobalContext = () => useContext(GlobalContext);

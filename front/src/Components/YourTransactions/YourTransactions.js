@@ -50,7 +50,7 @@ const YourTransactions = () => {
 
     // Function to handle saving edited transaction
     const handleSave = () => {
-        updateTransaction(editableTransaction._id, editedData).then(() => {
+        updateTransaction(editableTransaction._id, editedData).then((updatedTransaction) => {
             getTransactions(); // Refresh transactions after updating
             setEditableTransaction(null); // Clear editable transaction after saving
         });
