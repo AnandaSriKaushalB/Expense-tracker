@@ -26,7 +26,6 @@ export const GlobalProvider = ({ children }) => {
             if (token) {
                 config.headers.Authorization = `Bearer ${token}`;
             }
-            console.log("Request Config: ", config); // Add this line for debugging
             return config;
         },
         error => {
@@ -73,6 +72,7 @@ export const GlobalProvider = ({ children }) => {
         try {
             await axiosInstance.delete(`delete-income/${id}`);
             getIncomes();
+            getTransactions();
         } catch (err) {
             setError(err.response?.data?.message || 'An error occurred');
         }
@@ -109,6 +109,7 @@ export const GlobalProvider = ({ children }) => {
         try {
             await axiosInstance.delete(`delete-expense/${id}`);
             getExpenses();
+            getTransactions();
         } catch (err) {
             setError(err.response?.data?.message || 'An error occurred');
         }
@@ -145,29 +146,39 @@ export const GlobalProvider = ({ children }) => {
     }, [user]);
 
     const transactionHistory = () => {
-        const history = [...incomes, ...expenses]
-        history.sort((a, b) => {
-            return new Date(b.createdAt) - new Date(a.createdAt)
-        })
-
-        return history.slice(0, 5)
-    }
-    const deleteTransaction = (id) => {
-        // Implementation to delete transaction by id
-        setTransactions(prevTransactions => prevTransactions.filter(transaction => transaction._id !== id));
+        const history = [...incomes, ...expenses];
+        history.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        return history.slice(0, 5);
     };
 
-    const updateTransaction = (id, updatedData) => {
-        // Make an API call to update the transaction on the server
-        // Replace this with your actual implementation
-        console.log(`Updating transaction with ID ${id} with data:`, updatedData);
-        
-        // Assuming transactions is an array of objects and updating one of them
-        const updatedTransactions = transactions.map(transaction =>
-            transaction._id === id ? { ...transaction, ...updatedData } : transaction
-        );
+    const deleteTransaction = async (id) => {
+        try {
+            const transaction = transactions.find(tran => tran._id === id);
+            if (transaction.type === 'income') {
+                await deleteIncome(id);
+            } else {
+                await deleteExpense(id);
+            }
+            getTransactions(); // Refresh the transactions list
+        } catch (err) {
+            setError(err.response?.data?.message || 'An error occurred');
+        }
+    };
 
-        setTransactions(updatedTransactions);
+    const updateTransaction = async (id, updatedData) => {
+        try {
+            const transaction = transactions.find(tran => tran._id === id);
+            if (transaction.type === 'income') {
+                await axiosInstance.put(`update-income/${id}`, updatedData);
+                getIncomes();
+            } else {
+                await axiosInstance.put(`update-expense/${id}`, updatedData);
+                getExpenses();
+            }
+            getTransactions(); // Refresh the transactions list
+        } catch (err) {
+            setError(err.response?.data?.message || 'An error occurred');
+        }
     };
 
     useEffect(() => {
@@ -178,10 +189,10 @@ export const GlobalProvider = ({ children }) => {
     }, [user, getIncomes, getExpenses]);
 
     useEffect(() => {
-        if (user && incomes.length && expenses.length) {
+        if (user) {
             getTransactions();
         }
-    }, [user, incomes, expenses, getTransactions]);
+    }, [user, getTransactions]);
 
     return (
         <GlobalContext.Provider value={{
@@ -203,7 +214,6 @@ export const GlobalProvider = ({ children }) => {
             transactionHistory,
             deleteTransaction,
             updateTransaction
-
         }}>
             {children}
         </GlobalContext.Provider>
