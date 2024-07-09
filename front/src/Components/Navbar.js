@@ -1,4 +1,3 @@
-// src/Components/Navigation/Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -29,7 +28,7 @@ const Header = styled.header`
   position: ${props => props.hidden ? 'absolute' : 'static'};
   width: 100%;
   top: 0;
-  background-color: #f8f9fa;
+  background-color: ${props => props.theme.navbarBackground};
   padding: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000; /* Ensure the navbar is above other content */
@@ -38,6 +37,9 @@ const Header = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
 
   .brand {
@@ -53,14 +55,14 @@ const Header = styled.header`
 
 const StyledLink = styled(Link)`
   padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: #fff;
+  background-color: ${props => props.theme.linkBackground};
+  color: ${props => props.theme.linkColor};
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: ${props => props.theme.linkHoverBackground};
   }
 
   &:focus {

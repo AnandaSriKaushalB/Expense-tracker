@@ -186,11 +186,10 @@ const YourTransactions = () => {
 
 const TransactionStyled = styled.div`
     .transaction-container {
-        background-color: #fff;
-        border: 1px solid #e0e0e0;
+        background-color: #ffffff;
         border-radius: 8px;
         padding: 20px;
-        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
         margin-top: 20px;
     }
 
@@ -199,10 +198,25 @@ const TransactionStyled = styled.div`
         justify-content: space-between;
         align-items: center;
         margin-bottom: 10px;
+        margin-right: 20px; 
+        button, select {
+            background-color: #rgba(255, 255, 255, 0.6);
+            color: #000000;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            &:hover {
+                background-color: #ffffff;
+            }
+        }
     }
 
     h2 {
-        color: #333;
+        color: #000000;
         font-size: 24px;
         font-weight: bold;
         margin-bottom: 15px;
@@ -216,26 +230,27 @@ const TransactionStyled = styled.div`
         width: 100%;
         border-collapse: collapse;
         border-spacing: 0;
-        background-color: #fff;
+        background-color: #ffffff;
+        color: #000000;
     }
 
     th,
     td {
         padding: 12px 15px;
         text-align: left;
-        border-bottom: 1px solid #f0f0f0;
+        border-bottom: 1px solid #444;
     }
 
     th {
-        background-color: #f7f7f7;
+        background-color: #ffffff;
         font-size: 14px;
         font-weight: bold;
-        color: #333;
+        color: #000000;
     }
 
     td {
         font-size: 14px;
-        color: #555;
+        color: #000000;
     }
 
     .positive {
@@ -253,14 +268,25 @@ const ActionButton = styled.button`
     cursor: pointer;
     font-size: 1.2rem;
     margin-right: 10px;
+    color: #000000;
+    transition: color 0.3s ease;
+    &:hover {
+        color: #4CAF50;
+    }
 `;
 
 const SaveButton = styled.button`
-    background-color: #4caf50;
+    background-color: #0000000;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 1.2rem;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: #45a049;
+    }
 `;
 
 export default YourTransactions;

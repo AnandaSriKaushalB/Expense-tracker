@@ -34,7 +34,7 @@ function Dashboard() {
                         </div>
                         <div className="balance">
                             <h2>Total Balance</h2>
-                            <p>
+                            <p className="balance-amount">
                                 {dollar} {totalBalance()}
                             </p>
                         </div>
@@ -52,6 +52,8 @@ function Dashboard() {
 }
 
 const DashboardStyled = styled.div`
+
+    
     .stats-con {
         display: grid;
         gap: 2rem;
@@ -62,32 +64,48 @@ const DashboardStyled = styled.div`
             gap: 2rem;
             
             .income, .expense, .balance {
-                background: #FCF6F9;
+                background: #ffffff;
                 border: 2px solid #FFFFFF;
-                box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+                box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
                 border-radius: 20px;
-                padding: 1rem;
+                padding: 1.5rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
 
+                h2 {
+                    margin-bottom: 1rem;
+                    font-size: 1.5rem;
+                    color: #000000;
+                }
+
                 p {
                     font-size: 2rem;
                     font-weight: 700;
+                    color: #000000;
+                    display: flex;
+                    align-items: center;
+                    
+                    svg {
+                        margin-right: 0.5rem;
+                        fill: ${props => props.theme.iconColor};
+                    }
                 }
             }
 
-            .balance p {
-                color: var(--color-green);
-                opacity: 0.6;
-                font-size: 2.5rem;
+            .balance {
+                p.balance-amount {
+                    font-size: 2.5rem;
+                    color: #000000;
+                    opacity: 0.6;
+                }
             }
         }
 
-        .chart-con {
+        .chart-con, .history-con {
             grid-column: 1 / -1;
-            background: #FCF6F9;
+            background: #ffffff;
             border: 2px solid #FFFFFF;
             box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
             border-radius: 20px;
@@ -96,12 +114,8 @@ const DashboardStyled = styled.div`
         }
 
         .history-con {
-            grid-column: 1 / -1;
-            background: #FCF6F9;
-            border: 2px solid #FFFFFF;
-            box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-            border-radius: 20px;
             padding: 2rem;
+            overflow: auto;
         }
     }
 `;

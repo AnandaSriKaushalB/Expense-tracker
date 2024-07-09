@@ -34,6 +34,7 @@ function Income() {
                     </div>
                     <div className="incomes">
                         <div className="category-filter">
+                        
                             <label htmlFor="category">Filter by Category:</label>
                             <select id="category" value={selectedCategory} onChange={handleCategoryChange}>
                                 <option value="All">All</option>
@@ -72,58 +73,92 @@ function Income() {
 const IncomeStyled = styled.div`
     display: flex;
     overflow: auto;
+    color: #fff; 
+    background-color: linear-gradient(#ff4e50, #f9d423); 
+    padding: 2rem;
+
+    h1 {
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
     .total-income {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: #FCF6F9;
-        border: 2px solid #FFFFFF;
-        box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+        color: black;
+        background: #ffffff; 
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
         border-radius: 20px;
         padding: 1rem;
-        margin: 1rem 0;
         font-size: 2rem;
         gap: .5rem;
+        margin-bottom: 1rem;
+
         span {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--color-green);
+            color: #28a745; /* Green text color */
         }
     }
+
     .income-content {
-        display: flex;
+    
         gap: 2rem;
-        .incomes {
+        width: 100%;
+
+        .form-container {
             flex: 1;
+        }
+
+        .incomes {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
             .category-filter {
                 display: flex;
                 justify-content: flex-end;
-                margin-bottom: 1rem;
+                align-items: center;
+                margin-top: 2rem;
+
                 label {
                     margin-right: 0.5rem;
+                    color: #ffffff; /* Light text color */
                 }
+
                 select {
                     padding: 0.5rem;
-                    border: 1px solid #ccc;
+                    border: 1px solid #777; /* Darker border */
                     border-radius: 5px;
+                    background-color: #ffffff; /* Darker background */
+                    color: #000000; /* White text color */
+
+                    option {
+                        background-color: #ffffff; /* Darker background */
+                        color: #000000; /* White text color */
+                    }
                 }
             }
+
             .category-total {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-                background: #FCF6F9;
-                border: 2px solid #FFFFFF;
-                box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+                background: #555; /* Darker background */
+                border: 2px solid #777; /* Darker border */
                 border-radius: 10px;
                 padding: 0.5rem;
-                margin: 1rem 0;
                 font-size: 1.5rem;
                 gap: .5rem;
+                margin-bottom: 1rem;
+
                 span {
                     font-size: 2rem;
                     font-weight: 800;
-                    color: var(--color-green);
+                    color: #28a745; /* Green text color */
                 }
             }
         }

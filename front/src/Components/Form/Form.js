@@ -67,6 +67,7 @@ function Form() {
                     onChange={(date) => {
                         setInputState({ ...inputState, date: date });
                     }}
+                    customInput={<CustomDatePickerInput />}
                 />
             </div>
             <div className="selects input-control">
@@ -112,31 +113,36 @@ const FormStyled = styled.form`
     flex-direction: column;
     gap: 1rem;
     padding: 2rem;
-    background: #f7f7f7;
+    background: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 
     h2 {
         text-align: center;
         font-weight: bold;
+        color: #000000;
     }
 
     .input-control {
         display: flex;
         flex-direction: column;
+        border-radius: 20px;
         gap: 0.5rem;
         
         input, select, textarea {
             width: 100%;
             padding: 0.5rem;
-            border: 1px solid #ccc;
+            border: 1px solid #555; /* Darker border */
             border-radius: 4px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
             font-size: 1rem;
+            background: #ffffff; 
+            color: #000000; 
         }
         
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: #007bff;
+            border-color: #000000; /* Accent color for focus */
         }
     }
 
@@ -154,14 +160,14 @@ const FormStyled = styled.form`
             padding: 0.5rem 2rem;
             border: none;
             border-radius: 4px;
-            background: #007bff;
-            color: #fff;
+            background: #ccc;
+            color: #000000;
             font-size: 1rem;
             cursor: pointer;
             transition: background 0.3s ease;
 
             &:hover {
-                background: #0056b3;
+                background: #ccc;
             }
         }
     }
@@ -173,5 +179,17 @@ const FormStyled = styled.form`
         margin-top: 1rem;
     }
 `;
+
+const CustomDatePickerInput = ({ value, onClick }) => (
+    <input 
+        type="text"
+        placeholder="Enter a date"
+        
+        value={value}
+        onClick={onClick}
+        readOnly={true}
+
+    />
+);
 
 export default Form;

@@ -7,14 +7,14 @@ import { useAuthContext } from '../../hooks/useAuthContext';
 
 function ExpenseForm() {
     const { addExpense, error, setError } = useGlobalContext();
-    const { user } = useAuthContext(); // Retrieve user object from useAuthContext hook
+    const { user } = useAuthContext();
     const [inputState, setInputState] = useState({
         title: '',
         amount: '',
-        date: '',
+        date: null,
         category: '',
         description: '',
-        type: 'expense' // Indicate that this is an expense
+        type: 'expense'
     });
 
     const { title, amount, date, category, description } = inputState;
@@ -27,11 +27,11 @@ function ExpenseForm() {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            await addExpense(inputState, user.token); // Pass user token to addExpense function
+            await addExpense(inputState, user.token);
             setInputState({
                 title: '',
                 amount: '',
-                date: '',
+                date: null,
                 category: '',
                 description: '',
                 type: 'expense'
@@ -109,12 +109,14 @@ const ExpenseFormStyled = styled.form`
     flex-direction: column;
     gap: 1rem;
     padding: 2rem;
-    background: #f7f7f7;
+    background: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
 
     h2 {
         text-align: center;
+        color: #000000;
         font-weight: bold;
     }
 
@@ -126,14 +128,16 @@ const ExpenseFormStyled = styled.form`
         input, select, textarea {
             width: 100%;
             padding: 0.5rem;
-            border: 1px solid #ccc;
+            border: 1px solid ${props => props.theme.inputBorder};
             border-radius: 4px;
             font-size: 1rem;
+            background-color: #ffffff;
+            color: ${props => props.theme.text};
         }
         
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: #007bff;
+            border-color: ${props => props.theme.inputFocusBorder};
         }
     }
 
@@ -151,14 +155,14 @@ const ExpenseFormStyled = styled.form`
             padding: 0.5rem 2rem;
             border: none;
             border-radius: 4px;
-            background: #007bff;
-            color: #fff;
+            background: #ccc;
+            color: #000000;
             font-size: 1rem;
             cursor: pointer;
             transition: background 0.3s ease;
 
             &:hover {
-                background: #0056b3;
+                background: #ccc;
             }
         }
     }

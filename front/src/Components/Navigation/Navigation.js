@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import avatar1 from '../../img/avatar1.png';
 import { menuItems } from '../../utils/menuItems';
@@ -19,7 +19,7 @@ function Navigation({ active, setActive }) {
     <NavStyled>
       <div className="user-con">
         <img src={avatar1} alt="" />
-        {user && (
+        {user ? (
           <div className="text">
             <div className="greeting">
               <h2>Hello</h2>
@@ -28,8 +28,7 @@ function Navigation({ active, setActive }) {
             <h3>{user.username}</h3>
             <p>Your Expenditure</p>
           </div>
-        )}
-        {!user && (
+        ) : (
           <div className="text">
             <div className="greeting">
               <h2>Hello</h2>
@@ -74,14 +73,15 @@ const NavStyled = styled.nav`
   padding: 2rem 1.5rem;
   width: 374px;
   height: 100%;
-  background: PeachPuff; /* Added coral background color */
+  background: # ; /* Dark mode background color */
+  backdrop-filter: blur(10px);
   border: 3px solid #ffffff;
-  backdrop-filter: blur(4.5px);
   border-radius: 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
+  color: #ffffff; /* Text color for dark mode */
 
   .user-con {
     height: 100px;
@@ -105,19 +105,19 @@ const NavStyled = styled.nav`
         gap: 0.5rem;
         h2 {
           margin: 0;
-          color: rgba(34, 34, 96, 1);
+          color: #ffffff;
         }
         .hand-icon {
           font-size: 1.4rem;
-          color: rgba(34, 34, 96, 1);
+          color: #ffffff;
         }
       }
       h3 {
         margin: 0;
-        color: rgba(34, 34, 96, 1);
+        color: #ffffff;
       }
       p {
-        color: rgba(34, 34, 96, 0.6);
+        color: rgba(255, 255, 255, 0.6);
       }
     }
   }
@@ -134,11 +134,11 @@ const NavStyled = styled.nav`
       font-weight: bold; /* Make menu items bold */
       cursor: pointer;
       transition: all 0.4s ease-in-out;
-      color: rgba(34, 34, 96, 0.6);
+      color: rgba(255, 255, 255, 0.6);
       padding-left: 1rem;
       position: relative;
       i {
-        color: rgba(34, 34, 96, 0.6);
+        color: rgba(255, 255, 255, 0.6);
         font-size: 1.4rem;
         transition: all 0.4s ease-in-out;
       }
@@ -146,9 +146,9 @@ const NavStyled = styled.nav`
   }
 
   .active {
-    color: rgba(34, 34, 96, 1) !important;
+    color: #ffffff !important;
     i {
-      color: rgba(34, 34, 96, 1) !important;
+      color: #ffffff !important;
     }
     &::before {
       content: "";
@@ -157,7 +157,7 @@ const NavStyled = styled.nav`
       top: 0;
       width: 4px;
       height: 100%;
-      background: #222260;
+      background: #fcf6f9;
       border-radius: 0 10px 10px 0;
     }
   }
@@ -171,16 +171,16 @@ const NavStyled = styled.nav`
         align-items: center;
         cursor: pointer;
         transition: all 0.4s ease-in-out;
-        color: rgba(34, 34, 96, 0.6);
+        color: rgba(255, 255, 255, 0.6);
         font-weight: 500;
         i {
           margin-right: 0.5rem;
           font-size: 1.4rem;
         }
         &:hover {
-          color: rgba(34, 34, 96, 1);
+          color: #ffffff;
           i {
-            color: rgba(34, 34, 96, 1);
+            color: #ffffff;
           }
         }
       }

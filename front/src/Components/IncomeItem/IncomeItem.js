@@ -88,7 +88,7 @@ function IncomeItem({
 const IncomeItemStyled = styled.div`
     background: #FCF6F9;
     border: 2px solid #FFFFFF;
-    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -97,7 +97,8 @@ const IncomeItemStyled = styled.div`
     gap: 1rem;
     width: 100%;
     color: #222260;
-    .icon{
+
+    .icon {
         width: 80px;
         height: 80px;
         border-radius: 20px;
@@ -106,21 +107,23 @@ const IncomeItemStyled = styled.div`
         align-items: center;
         justify-content: center;
         border: 2px solid #FFFFFF;
-        i{
+        i {
             font-size: 2.6rem;
         }
     }
 
-    .content{
+    .content {
         flex: 1;
         display: flex;
         flex-direction: column;
         gap: .2rem;
-        h5{
+
+        h5 {
             font-size: 1.3rem;
             padding-left: 2rem;
             position: relative;
-            &::before{
+
+            &::before {
                 content: '';
                 position: absolute;
                 left: 0;
@@ -133,15 +136,17 @@ const IncomeItemStyled = styled.div`
             }
         }
 
-        .inner-content{
+        .inner-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            .text{
+
+            .text {
                 display: flex;
                 align-items: center;
                 gap: 1.5rem;
-                p{
+
+                p {
                     display: flex;
                     align-items: center;
                     gap: 0.5rem;
@@ -149,11 +154,13 @@ const IncomeItemStyled = styled.div`
                     opacity: 0.8;
                 }
             }
-            .btn-delete{
+
+            .btn-delete {
                 background: transparent;
                 border: none;
                 cursor: pointer;
-                i{
+
+                i {
                     font-size: 1.5rem;
                     color: red;
                 }

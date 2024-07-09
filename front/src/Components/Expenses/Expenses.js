@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from '../../context/globalContext';
 import { InnerLayout } from '../../styles/Layouts';
 import ExpenseForm from '../Expenses/ExpenseForm';
@@ -85,19 +87,22 @@ function Expenses() {
 const ExpensesStyled = styled.div`
     display: flex;
     overflow: auto;
+    color: ${props => props.theme.text};
+    
     .total-expenses, .total-balance {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: #FCF6F9;
-        border: 2px solid #FFFFFF;
-        box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+        background: #ffffff;
+        color: #000000;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
         border-radius: 20px;
         padding: 1rem;
         margin: 1rem 0;
         font-size: 2rem;
         gap: .5rem;
     }
+    
     .total-expenses {
         span {
             font-size: 2.5rem;
@@ -105,6 +110,7 @@ const ExpensesStyled = styled.div`
             color: red; /* Set the color directly here */
         }
     }
+    
     .total-balance {
         span {
             font-size: 2.5rem;
@@ -112,36 +118,46 @@ const ExpensesStyled = styled.div`
             color: var(--color-green); /* Ensure this color is defined and used */
         }
     }
+    
     .expenses-content {
-        display: flex;
+
         gap: 2rem;
+        
         .expenses {
             flex: 1;
+            margin-top:2rem;
+            
             .category-filter {
                 display: flex;
                 justify-content: flex-end;
                 margin-bottom: 1rem;
+                
                 label {
                     margin-right: 0.5rem;
                 }
+                
                 select {
                     padding: 0.5rem;
-                    border: 1px solid #ccc;
+                    border: 1px solid ${props => props.theme.border};
                     border-radius: 5px;
+                    background-color: ${props => props.theme.background};
+                    color: ${props => props.theme.text};
                 }
             }
+            
             .category-total {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-                background: #FCF6F9;
-                border: 2px solid #FFFFFF;
+                background: ${props => props.theme.cardBackground};
+                border: 2px solid ${props => props.theme.border};
                 box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
                 border-radius: 10px; /* Smaller border-radius */
                 padding: 0.5rem; /* Smaller padding */
                 margin: 1rem 0;
                 font-size: 1.5rem; /* Smaller font-size */
                 gap: .5rem;
+                
                 span {
                     font-size: 2rem; /* Smaller font-size */
                     font-weight: 800;
