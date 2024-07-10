@@ -63,7 +63,7 @@ To run this project locally, follow these steps:
 
     ```bash
     git clone https://github.com/ChethanJS07/ExpenseTracker.git
-    cd ExpenseTracker
+    cd Expense-tracker
     ```
 
 2. Navigate to the backend directory:
