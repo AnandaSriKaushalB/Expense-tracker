@@ -22,8 +22,7 @@ function Navigation({ active, setActive }) {
         {user ? (
           <div className="text">
             <div className="greeting">
-              <h2>Hello</h2>
-              <FaHandPaper className="hand-icon" />
+              <h2>Hello 👋</h2>
             </div>
             <h3>{user.username}</h3>
             <p>Your Expenditure</p>
