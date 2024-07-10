@@ -11,7 +11,13 @@ const PORT = process.env.PORT || 3001;
 
 // Middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: ["http://192.168.1.3:3000", "http://localhost:3000"], // Add all allowed origins here
+    credentials: true, // Allow credentials (cookies)
+    allowedHeaders: ["Content-Type", "Authorization"], // Add other headers if needed
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific methods
+}));
+
 
 
 
@@ -28,3 +34,5 @@ const server = () => {
 };
 
 server();
+
+module.exports =app;

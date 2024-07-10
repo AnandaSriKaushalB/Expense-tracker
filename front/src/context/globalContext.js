@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useCallback, useEffect } fr
 import axios from 'axios';
 import { useAuthContext } from '../hooks/useAuthContext';
 
-const BASE_URL = "http://localhost:3000/api/v1/";
+const BASE_URL = "https://expense-tracker-five-kohl.vercel.app/api/v1";
 
 const GlobalContext = createContext();
 
