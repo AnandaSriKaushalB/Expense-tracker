@@ -17,7 +17,7 @@ function Dashboard() {
     return (
         <DashboardStyled>
             <InnerLayout>
-                <h1>All Transactions</h1>
+                <h1 className='all-transactions'>All Transactions</h1>
                 <div className="stats-con">
                     <div className="amount-con">
                         <div className="income">
@@ -52,8 +52,11 @@ function Dashboard() {
 }
 
 const DashboardStyled = styled.div`
+    .all-transactions {
+        text-align: center;
+        margin-bottom: 2rem; 
+    }
 
-    
     .stats-con {
         display: grid;
         gap: 2rem;
