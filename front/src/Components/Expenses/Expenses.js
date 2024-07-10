@@ -40,7 +40,9 @@ function Expenses() {
     return (
         <ExpensesStyled>
             <InnerLayout>
-                <h1>Expenses</h1>
+                <div className="header">
+                    <h1><b>Expenses</b></h1>
+                </div>
                 <h2 className="total-expenses">Total Expenses: <span className="total-expenses-amount">${totalExpenses()}</span></h2>
                 <h2 className="total-balance">Available Balance: <span className="total-balance-amount">${totalBalance()}</span></h2>
                 <div className="expenses-content">
@@ -88,7 +90,18 @@ const ExpensesStyled = styled.div`
     display: flex;
     overflow: auto;
     color: ${props => props.theme.text};
-    
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        h1 {
+            font-size: 2.5rem;
+        }
+    }
+
     .total-expenses, .total-balance {
         display: flex;
         justify-content: center;
@@ -120,12 +133,11 @@ const ExpensesStyled = styled.div`
     }
     
     .expenses-content {
-
         gap: 2rem;
         
         .expenses {
             flex: 1;
-            margin-top:2rem;
+            margin-top: 2rem;
             
             .category-filter {
                 display: flex;

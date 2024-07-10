@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useAuthContext } from '../hooks/useAuthContext';
+import logo from '../img/expenses.png'; // Import the image
 
 const Navbar = () => {
   const { user } = useAuthContext();
@@ -10,6 +11,7 @@ const Navbar = () => {
     <Header hidden={user}>
       <div className='container'>
         <Link to="/" className='brand'>
+          <img src={logo} alt="Logo" className='logo' /> {/* Add the image */}
           <h1>Expense Tracker</h1>
         </Link>
         <nav>
@@ -43,8 +45,16 @@ const Header = styled.header`
   }
 
   .brand {
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: inherit;
+
+    .logo {
+      width: 40px; /* Adjust the size as needed */
+      height: 40px; /* Adjust the size as needed */
+      margin-right: 10px;
+    }
 
     h1 {
       margin: 0;

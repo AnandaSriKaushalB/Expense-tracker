@@ -25,7 +25,7 @@ const Signup = () => {
         <Shape />
       </Background>
       <SignupFormStyled onSubmit={handleSubmit}>
-        <h3>Start saving your money!</h3>
+        <h3>Start saving your money! <br></br>Sign Up 👇</h3>
         <label htmlFor="username">Username</label>
         <input
           type="text"

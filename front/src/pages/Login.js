@@ -20,7 +20,7 @@ const Login = () => {
         <Shape />
       </Background>
       <LoginFormStyled onSubmit={handleLogin}>
-        <h3>Continue where you left off!</h3>
+        <h3>Already have an Account? Login 👇</h3>
         <label htmlFor="username">Username</label>
         <input
         type="text"
