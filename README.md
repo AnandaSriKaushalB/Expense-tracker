@@ -2,7 +2,7 @@
 
 Expense Tracker is a web application designed to help users manage their income and expenses. The application allows users to add, view, and delete expenses and incomes, providing a graphical representation of their financial data.
 
-## Project Partners:
+## Project Members:
 
 - [Ananda Sri Kaushal B](https://github.com/AnandaSriKaushalB)
 - [Chethan JS](https://github.com/ChethanJS07)
