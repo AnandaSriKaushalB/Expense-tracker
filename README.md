@@ -4,7 +4,7 @@ Expense Tracker is a web application designed to help users manage their income 
 
 ## Project Members:
 
-- [Ananda Sri Kaushal B](https://github.com/AnandaSriKaushalB)(Myself)
+- [Ananda Sri Kaushal B](https://github.com/AnandaSriKaushalB) (Myself)
 - [Chethan JS](https://github.com/ChethanJS07)
 - [Rituarna R](https://github.com/ritzpurr)
 - [Pathik yadav](https://github.com/pathik705)
