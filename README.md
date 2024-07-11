@@ -29,7 +29,7 @@ Expense Tracker is a web application designed to help users manage their income 
 
 ## Demo
 
-You can see a live demo of the app [here](https://example.com).
+You can see a live demo of the app [here](https://expense-client-pi.vercel.app/).
 
 ## Technologies Used
 
